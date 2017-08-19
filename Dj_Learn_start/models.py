@@ -16,4 +16,3 @@ class Post(models.Model):
         """Возвращает строковое представление модели."""
         return u'{} {}'.format(self.title, self.date_create)
 
-    
