@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Блог</title>
+</head>
+<body>
+        <h1>{{ post.title }}</h1>
+            <p>
+                {{ post.text }}
+            </p>
+            <p>
+                {{ post.date_create }}
+            </p>
+            <br>
+            <a href="{% url 'post_list' %}">назад</a>
+</body>
+</html>
