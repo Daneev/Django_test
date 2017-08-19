@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Блог</title>
-</head>
-<body>
-        <h1>{{ post.title }}</h1>
-            <p>
-                {{ post.text }}
-            </p>
-            <p>
-                {{ post.date_create }}
-            </p>
-            <br>
-            <a href="{% url 'post_list' %}">назад</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ post.title }}</h1>
+        <p>
+            {{ post.text|linebreaks }}
+        </p>
+        <p>
+            {{ post.date_create }}
+        </p>
+        <a href="{% url 'post_list' %}">назад</a>
+{% endblock content %}

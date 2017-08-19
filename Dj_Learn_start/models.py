@@ -9,6 +9,11 @@ class Post(models.Model):
     text = models.TextField(u"Текст")
     date_create = models.DateTimeField(u"Дата создания", auto_now_add=True)
 
+    class Meta:
+        ordering = ['-date_create']
+
     def __str__(self):
         """Возвращает строковое представление модели."""
         return u'{} {}'.format(self.title, self.date_create)
+
+    

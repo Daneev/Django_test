@@ -16,11 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-import Dj_Learn_start.views
+from Dj_Learn_start import views
 
 
 urlpatterns = [
-    url(r'^$', Dj_Learn_start.views.post_list, name='post_list'),
-    url(r'^post/(?P<pk>\d+)/$', Dj_Learn_start.views.post_detail, name='post_detail'),
+    url(r'^$', views.post_list, name='post_list'),
+    url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
     url(r'^admin/', admin.site.urls),
 ]
