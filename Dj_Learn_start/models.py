@@ -11,4 +11,4 @@ class Post(models.Model):
 
     def __str__(self):
         """Возвращает строковое представление модели."""
-        return self.text
+        return u'{} {}'.format(self.title, self.date_create)
