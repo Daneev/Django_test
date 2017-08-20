@@ -7,6 +7,7 @@ class Lekarstvo(models.Model):
     name_lek = models.CharField("Наименование", max_length=150)
     price_lek = models.IntegerField("цена")
     apteka_adress = models.TextField("Адрес аптеки")
+    photo = models.ImageField("изображение", upload_to="Lekarstvo/images", default="", blank=True)
 
     class Meta:
         verbose_name = "Лекарство"

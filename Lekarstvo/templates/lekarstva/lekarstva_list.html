@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block application %}
+
+    {% for lek in lekarstva %}
+        <div>
+            <h2>{{ lek.name_lek }}</h2>
+            {% if lek.photo %}
+                <img src="{{ lek.photo.url }}" alt="{{ lek.name_lek }}">
+            {% endif %}
+            <div>{{ lek.price_lek }}</div>
+            <div>{{ lek.apteka_adress }}</div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
