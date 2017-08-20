@@ -21,6 +21,7 @@ from Dj_Learn_start import views
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
+    url(r'^test/', views.test, name='test'),
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
     url(r'^admin/', admin.site.urls),
 ]

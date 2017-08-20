@@ -15,6 +15,9 @@ def post_detail(request, pk):
     post = Post.objects.get(id=pk)
     return render_to_response("blog/post_detail.html", {"post": post})
 
+def test(request):
+    return render_to_response("blog/test.html")
+
 
 
 
