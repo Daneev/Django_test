@@ -1,12 +1,18 @@
 {% extends "index.html" %}
-{% block application %}
-    <div>
-        <h2>{{ lek.name_lek }}</h2>
-        {% if lek.photo %}
-            <img src="{{ lek.photo.url }}" alt="{{ lek.name_lek }}">
-        {% endif %}
-        <div>{{ lek.price_lek }}</div>
-        <div>{{ lek.apteka_adress }}</div>
-    </div>
 
+{% block html_title %}
+    Лекарство {{ lekarstvo.name_lek }}
+{% endblock %}
+
+{% block application %}
+
+    <div>
+        <h2>{{ lekarstvo.name_lek }}</h2>
+        {% if lekarstvo.photo %}
+            <img src="{{ lekarstvo.photo.url }}" alt="{{ lekarstvo.name_lek }}">
+        {% endif %}
+        <div>{{ lekarstvo.price_lek }}</div>
+        <div>{{ lekarstvo.apteka_address }}</div>
+    </div>
+<a href="{% url 'lekarstva' %}">Lekarstva</a>
 {% endblock %}

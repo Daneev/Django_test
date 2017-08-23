@@ -4,7 +4,7 @@
 
     {% for lek in lekarstva %}
         <div>
-            <h2>{{ lek.name_lek }}</h2>
+            <h2><a href="{% url 'lekarstvo' lekarstvo_id=lek.id %}">{{ lek.name_lek }}</a></h2>
             {% if lek.photo %}
                 <img src="{{ lek.photo.url }}" alt="{{ lek.name_lek }}">
             {% endif %}
@@ -12,5 +12,5 @@
             <div>{{ lek.apteka_adress }}</div>
         </div>
     {% endfor %}
-
+<a href="{% url 'post_list' %}">Блог</a>
 {% endblock %}

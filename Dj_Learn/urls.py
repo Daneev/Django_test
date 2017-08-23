@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from Lekarstvo.views import lekarstva_list
+from Lekarstvo.views import lekarstva_list, lekarstvo
 from Dj_Learn_start import views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^test/', views.test, name='test'),
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
     url(r'^admin/', admin.site.urls),
-    url(r'^lekarstva/', lekarstva_list, name='lekarstva')
+    url(r'^lekarstva/', lekarstva_list, name='lekarstva'),
+    url(r'^lekarstvo/(?P<lekarstvo_id>\d+)/$', lekarstvo, name='lekarstvo'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

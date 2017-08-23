@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Лекарства</title>
+    <title>
+    {% block html_title %}
+    Лекарства
+    {% endblock %}
+    </title>
 </head>
 <body>
 {% block application %}
