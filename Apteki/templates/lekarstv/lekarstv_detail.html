@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+
+
+{% block application %}
+
+    <div>
+        <h2>{{ lekarstvD.name }}</h2>
+        {% if lekarstvD.photo %}
+            <img src="{{ lekarstvD.photo.url }}" alt="{{ lekarstvD.name }}">
+        {% endif %}
+        <div>{{ lekarstvD.price }}</div>
+        <div>{{ lekarstvD.address }}</div>
+    </div>
+<a href="{% url 'lekarstv_list' %}">Lekarstva</a>
+{% endblock %}
+
+

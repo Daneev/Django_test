@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class LekarstvoConfig(AppConfig):
-    name = 'Lekarstvo'
+class LekarstvConfig(AppConfig):
+    name = 'Apteki'
     verbose_name = "Лекарство"

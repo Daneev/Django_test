@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+
+{% block application %}
+
+
+    {% for lek in lekarstvL %}
+        <div>
+            <h2><a href="{% url 'lekarstv_detail' lekarstv_id=lek.id %}">{{ lek.name }}</a></h2>
+            {% if lek.photo %}
+                <img src="{{ lek.photo.url }}" alt="{{ lek.name }}">
+            {% endif %}
+            <div>{{ lek.price }}</div>
+            <div>{{ lek.address }}</div>
+        </div>
+    {% endfor %}
+
+<a href="{% url 'post_list' %}">Блог</a>
+
+{% endblock %}
+
+

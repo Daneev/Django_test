@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 # Мои приложения
     'Dj_Learn_start',
-    'Lekarstvo',
+    'Apteki',
 
 ]
 

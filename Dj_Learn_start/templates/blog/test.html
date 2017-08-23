@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block content %}
     <title>Test</title>
-    <h1> <font color="red">Test</font></h1>
+    <h1> <a href="{% url 'post_list' %}"><font color="red">Test</font>{% trans "</" %}h1>
 
 {% endblock content %}
