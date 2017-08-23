@@ -5,7 +5,7 @@
 
     {% for lek in lekarstvL %}
         <div>
-            <h2><a href="{% url 'lekarstv_detail' lekarstv_id=lek.id %}">{{ lek.name }}</a></h2>
+            <h2><a href="{% url "detail" lekarstv_id=lek.id %}">{{ lek.name }}</a></h2>
             {% if lek.photo %}
                 <img src="{{ lek.photo.url }}" alt="{{ lek.name }}">
             {% endif %}
