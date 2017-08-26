@@ -15,7 +15,19 @@
         <div>{{ lekarstvD.price }}</div>
         <div>{{ lekarstvD.address }}</div>
     </div>
+
 <a href="{% url 'list' %}">Список лекарств..</a>
+
+    <div>
+    <h2>Запрос</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <input type="submit" value="Отправить">
+
+        </form>
+    </div>
+
 {% endblock %}
 
 

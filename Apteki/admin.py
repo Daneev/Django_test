@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Apteki.models import Lekarstv
+from .models import Lekarstv
 
 #admin.site.register(Lekarstv)
 

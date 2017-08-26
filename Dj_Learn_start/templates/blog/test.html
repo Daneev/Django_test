@@ -1,7 +1,41 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load bootstrap3 %}
+
 {% block content %}
     <title>Test</title>
-    <h1> <a href="{% url 'post_list' %}"><font color="red">Test</font>{% trans "</" %}h1>
+
+
+    <style>
+    A {
+    color: red; /* Цвет символа */
+    }
+    #name {
+    color: #4300ff; /* Цвет символа */
+    }
+    </style>
+
+    <h2><a href="{% url 'post_list' %}">TEST</a> </h2>
+
+    <div>
+    <h2>Запрос</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+            <button type="submit" class="btn btn-primary">
+                {% bootstrap_icon "star" %} Отправить </button>
+            {% endbuttons %}
+        </form>
+        <br>
+        <br>
+        <br>
+    <p ID="name">
+        {{ name|default:"" }}
+    </p>
+
+    </div>
+
+
+
 
 {% endblock content %}

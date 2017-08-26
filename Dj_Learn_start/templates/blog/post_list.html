@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+  <style>
+    h1 {
+    color: #ff8800; /* Цвет символа */
+    }
+    </style>
 
     <h1>БЛОГ</h1>
 
@@ -20,6 +25,7 @@
         <p>
             {{ post.date_create }}
         </p>
+        <hr>
     {% endfor %}
 
     <br>
@@ -27,4 +33,6 @@
 
     <br>
             <a href="{% url 'list' %}">Лекарства..</a>
+
+
 {% endblock content %}

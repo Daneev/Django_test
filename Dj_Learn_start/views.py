@@ -1,5 +1,7 @@
-from django.shortcuts import render_to_response
-from Dj_Learn_start.models import Post
+from django.http import HttpResponse
+from django.shortcuts import render_to_response, render, get_object_or_404
+from .forms import OrderForm
+from .models import Post
 
 
 def post_list(request):
@@ -16,7 +18,12 @@ def post_detail(request, pk):
     return render_to_response("blog/post_detail.html", {"post": post})
 
 def test(request):
-    return render_to_response("blog/test.html")
+    form = OrderForm(request.POST or None)
+    def name():
+        if request.method == "POST":
+            if form.is_valid():
+                return request.POST.get('name')
+    return render(request, "blog/test.html", {"form": form, "name": name})
 
 
 

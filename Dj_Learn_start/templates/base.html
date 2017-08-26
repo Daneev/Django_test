@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Блог</title>
+
+    {% load bootstrap3 %}
+    <script src="{% bootstrap_jquery_url %}"></script>
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
+
 </head>
 <body>
-    {% block content %}
-    {% endblock content %}
+    <div class="container">
+        <div class="row">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
 </body>
 </html>

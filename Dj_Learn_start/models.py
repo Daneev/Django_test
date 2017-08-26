@@ -2,6 +2,8 @@
 from django.db import models
 
 # Create your models here.
+from Apteki.models import Lekarstv
+
 
 class Post(models.Model):
 
@@ -16,3 +18,10 @@ class Post(models.Model):
         """Возвращает строковое представление модели."""
         return u'{} {}'.format(self.title, self.date_create)
 
+
+
+class Order(models.Model):
+    lekarstvo = models.ForeignKey(Lekarstv, verbose_name='Лекарство')
+    name = models.CharField("name", max_length=50)
+    #price = models.CharField("price", max_length=50)
+    #address = models.CharField("adress", max_length=50)
