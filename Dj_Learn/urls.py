@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from Apteki.views import list, detail
-from Dj_Learn_start.views import post_detail, test, post_list
+from Dj_Learn_start.views import post_detail, test, post_list, addcomment
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^$', post_list, name='post_list'),
     url(r'^test/', test, name='test'),
     url(r'^post/(?P<pk>\d+)/$', post_detail, name='post_detail'),
+    url(r'^post/(?P<pk>\d+)/addcomment/$', addcomment, name='addcomment'),
     url(r'^admin/', admin.site.urls),
     url(r'^lekarstv/', include(lekpatterns)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

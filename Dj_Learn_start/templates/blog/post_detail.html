@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load bootstrap3 %}
 {% block content %}
     <h1>{{ post.title }}</h1>
         <p>
@@ -8,13 +9,24 @@
             {{ post.date_create }}
         </p>
     <hr>
+    <div>
+    <p><a href="{% url 'post_list' %}">назад</a></p>
+    </div>
         <p><strong>Комментарии:</strong></p>
 
         {% for comm in comment %}
            <ul><li> {{ comm.text }} </li></ul>
         {% endfor %}
-
-        <a href="{% url 'post_list' %}">назад</a>
-
+    <div>
+    <form action="addcomment/" method="post">
+        {% csrf_token %}
+            <div class="col-xs-3">
+                {% bootstrap_form form %}
+                {% buttons %}
+                <button type="submit" class="btn btn-primary"> Добавить </button>
+                {% endbuttons %}
+            </div>
+    </form>
+    </div>
 
 {% endblock content %}
