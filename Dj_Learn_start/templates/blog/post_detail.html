@@ -7,6 +7,13 @@
         <p>
             {{ post.date_create }}
         </p>
+    <hr>
+        <p><strong>Комментарии:</strong></p>
+
+        {% for comm in comment %}
+           <ul><li> {{ comm.text }} </li></ul>
+        {% endfor %}
+
         <a href="{% url 'post_list' %}">назад</a>
 
 

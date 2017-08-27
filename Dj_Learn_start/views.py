@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render, get_object_or_404
 from .forms import OrderForm
-from .models import Post
+from .models import Post, Comment
 
 
 def post_list(request):
@@ -15,7 +15,9 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = Post.objects.get(id=pk)
-    return render_to_response("blog/post_detail.html", {"post": post})
+    comment = Comment.objects.filter(comment_post_id=pk)
+    return render_to_response("blog/post_detail.html", {"post": post, "comment": comment})
+
 
 def test(request):
     form = OrderForm(request.POST or None)

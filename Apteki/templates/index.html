@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+    {% load bootstrap3 %}
+    <script src="{% bootstrap_jquery_url %}"></script>
+    {% bootstrap_javascript %}
+    {% bootstrap_css %}
     <title>
         {% block html_title %}
             Лекарства
@@ -11,8 +14,13 @@
 
 </head>
     <body>
-        {% block application %}
-
-        {% endblock %}
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    {% block application %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -6,4 +6,4 @@ from .models import Lekarstv
 @admin.register(Lekarstv)
 class AdminLekarstv(admin.ModelAdmin):
     list_display=["name", "price"]
-
+    list_filter = ["name"]

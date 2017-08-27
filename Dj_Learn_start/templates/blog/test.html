@@ -20,20 +20,22 @@
     <h2>Запрос</h2>
         <form action="" method="post">
             {% csrf_token %}
-            {% bootstrap_form form %}
-            {% buttons %}
-            <button type="submit" class="btn btn-primary">
-                {% bootstrap_icon "star" %} Отправить </button>
-            {% endbuttons %}
+                <div class="col-xs-3">
+                    {% bootstrap_form form %}
+                    {% buttons %}
+                    <button type="submit" class="btn btn-primary"> Отправить </button>
+                    {% endbuttons %}
+                </div>
         </form>
-        <br>
-        <br>
-        <br>
+    </div>
+    <br>
+    <br>
+    <br>
     <p ID="name">
         {{ name|default:"" }}
     </p>
 
-    </div>
+
 
 
 

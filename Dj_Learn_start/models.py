@@ -13,6 +13,8 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-date_create']
+        verbose_name = "Запись в блоге"
+        verbose_name_plural = "Записи в блоге"
 
     def __str__(self):
         """Возвращает строковое представление модели."""
@@ -22,6 +24,18 @@ class Post(models.Model):
 
 class Order(models.Model):
     lekarstvo = models.ForeignKey(Lekarstv, verbose_name='Лекарство')
-    name = models.CharField("name", max_length=50)
+    name = models.CharField("Введите наименование лекарства ", max_length=50)
     #price = models.CharField("price", max_length=50)
     #address = models.CharField("adress", max_length=50)
+
+
+class Comment(models.Model):
+    comment_post = models.ForeignKey(Post, verbose_name="Комментарии")
+    text = models.CharField("Текст комментария", max_length=200)
+
+    class Meta:
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
+
+    def __str__(self):
+        return self.text

@@ -5,9 +5,9 @@ from django.db import models
 
 class Lekarstv(models.Model):
     name = models.CharField("Наименование", max_length=150)
-    price = models.IntegerField("цена")
+    price = models.IntegerField("Цена")
     address = models.TextField("Адрес аптеки")
-    photo = models.ImageField("изображение", upload_to="Lekarstv/images", default="", blank=True)
+    photo = models.ImageField("Изображение", upload_to="Lekarstv/images", default="", blank=True)
 
     class Meta:
         verbose_name = "Лекарство"
