@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load bootstrap3 %}
 {% block content %}
   <style>
     h1 {
@@ -7,12 +8,13 @@
     </style>
 
     <h1>БЛОГ</h1>
+    <div>
 
-     <form action=".">
-        <input name="query" type="text" value={{query|default:''}} >
-        <input type="submit" value="Найти" >
+     <form action="">
+         <input name="query" type="text" value={{query|default:''}} >
+         <button type="submit" class="btn btn-primary"> Найти </button>
      </form>
-
+    </div>
     {% for post in post_list %}
         <h2>
             {{ post.title }}

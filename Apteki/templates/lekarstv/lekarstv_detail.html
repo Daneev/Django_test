@@ -20,6 +20,9 @@
 
     <div>
     <h2>Запрос</h2>
+        {% if sent %}
+            <h2>Спасибо!</h2>
+        {% endif %}
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_table }}

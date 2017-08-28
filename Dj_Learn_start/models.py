@@ -32,6 +32,7 @@ class Order(models.Model):
 class Comment(models.Model):
     comment_post = models.ForeignKey(Post, verbose_name="Комментарии")
     text = models.CharField("Текст комментария", max_length=200)
+    data = models.DateTimeField(auto_now_add=True, verbose_name="дата комментария")
 
     class Meta:
         verbose_name = "Комментарий"
