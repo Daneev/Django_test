@@ -7,34 +7,38 @@
     }
     </style>
 
-    <h1>БЛОГ</h1>
-    <div>
-
-     <form action="">
-         <input name="query" type="text" value={{query|default:''}} >
-         <button type="submit" class="btn btn-primary"> Найти </button>
-     </form>
+    <div class="container">
+        <div class="blog-header">
+            <h1 class="blog-title"> БЛОГ </h1>
+        </div>
     </div>
-    {% for post in post_list %}
-        <h2>
-            {{ post.title }}
-        </h2>
-        <p>
-            {{ post.text|truncatewords:30 }}
-            <br>
-            <a href="{% url 'post_detail' post.id %}">Читать далее..</a>
-        </p>
-        <p>
-            {{ post.date_create }}
-        </p>
-        <hr>
-    {% endfor %}
 
-    <br>
-            <a href="{% url 'test' %}">Test..</a>
+     <div class="container">
+         <form action="">
+             <input name="query" type="text" value={{query|default:''}} >
+             <button type="submit" class="btn btn-primary"> Найти </button>
+         </form>
 
-    <br>
-            <a href="{% url 'list' %}">Лекарства..</a>
+        {% for post in post_list %}
+            <h2>
+                {{ post.title }}
+            </h2>
+            <p>
+                {{ post.text|truncatewords:30 }}
+                <br>
+                <a href="{% url 'post_detail' post.id %}">Читать далее..</a>
+            </p>
+            <p>
+                {{ post.date_create }}
+            </p>
+            <hr>
+        {% endfor %}
+    </div>
 
-
+    <div class="container">
+    <ul>
+        <p><a href="{% url 'test' %}">Test..</a></p>
+        <p><a href="{% url 'list' %}">Лекарства..</a></p>
+    </ul>
+    </div>
 {% endblock content %}

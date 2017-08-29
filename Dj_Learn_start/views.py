@@ -1,4 +1,4 @@
-
+from django.contrib import auth
 from django.shortcuts import render_to_response, render, get_object_or_404, redirect
 from .forms import OrderForm, CommentForm
 from .models import Post, Comment
@@ -11,15 +11,23 @@ def post_list(request):
     if query:
         post_list = post_list.filter(text__icontains=query)
 
-    return render_to_response("blog/post_list.html", {"post_list": post_list, "query": query})
+    return render_to_response("blog/post_list.html", {
+        "post_list": post_list,
+        "query": query,
+        "username": auth.get_user(request).username
+    })
 
 
 def post_detail(request, pk):
     comment_form = CommentForm
     post = Post.objects.get(id=pk)
     comment = Comment.objects.filter(comment_post_id=pk)
-    return render(request, "blog/post_detail.html",
-                              {"post": post, "comment": comment, "form": comment_form})
+    return render(request, "blog/post_detail.html", {
+        "post": post,
+        "comment": comment,
+        "form": comment_form,
+        "username": auth.get_user(request).username
+    })
 
 
 def test(request):
@@ -30,7 +38,11 @@ def test(request):
             if form.is_valid():
                 return request.POST.get('name')
 
-    return render(request, "blog/test.html", {"form": form, "name": name})
+    return render(request, "blog/test.html", {
+        "form": form,
+        "name": name,
+        "username": auth.get_user(request).username
+    })
 
 
 def addcomment(request, pk):

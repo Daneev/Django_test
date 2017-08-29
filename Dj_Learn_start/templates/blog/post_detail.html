@@ -17,16 +17,18 @@
         {% for comm in comment %}
            <ul><li>  {{ comm.text }}</li></ul>
         {% endfor %}
-    <div>
-    <form action="addcomment/" method="post">
-        {% csrf_token %}
-            <div class="col-xs-3">
-                {% bootstrap_form form %}
-                {% buttons %}
-                <button type="submit" class="btn btn-primary"> Добавить </button>
-                {% endbuttons %}
-            </div>
-    </form>
-    </div>
 
+    {% if username %}
+        <div class="container">
+        <form action="addcomment/" method="post">
+            {% csrf_token %}
+                <div class="col-xs-3">
+                    {% bootstrap_form form %}
+                    {% buttons %}
+                    <button type="submit" class="btn btn-primary"> Добавить </button>
+                    {% endbuttons %}
+                </div>
+        </form>
+        </div>
+    {% endif %}
 {% endblock content %}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Мои приложения
     'Dj_Learn_start',
     'Apteki',
+    'loginsys',
 
 ]
 
@@ -106,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Samara'
 
 USE_I18N = True
 

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block login %}
+
+
+{#     <div class="col-md-6 col-md-offset-3">#}
+        <div class="container">
+            <div class="row">
+            <div class="col-xs-3 col-md-offset-4">
+             <form class="form-signin" role="form" action="/auth/login/" method="post">
+                  {% csrf_token %}
+                <h4 class="form-signin-heading">Пожалуйста авторизуйтесь</h4>
+{#                  <label for="username">Имя пользователя</label>#}
+                  <input type="text" class="form-control" name="username" id="username">
+{#                  <label for="password">Пароль</label>#}
+                  <input type="password" class="form-control" name="password" id="password">
+                  {% if login_error %}
+                      <label class="error">{{ login_error }}</label>
+                  {% endif %}
+
+                    <label class="checkbox">
+                      <input type="checkbox" value="remember-me"> Запомнить меня
+                    </label>
+
+                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="Войти">
+
+    {#              <div class="label round secondary"><a href="/auth/register/">Регистрация</a></div>#}
+              </form>
+            </div>
+            </div>
+        </div>
+{#    </div>#}
+ {% endblock %}

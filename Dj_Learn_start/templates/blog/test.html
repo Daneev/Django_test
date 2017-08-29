@@ -4,40 +4,44 @@
 {% block content %}
     <title>Test</title>
 
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <ul class="nav navbar-nav navbar-right">
+                {% if username %}
+                    <li><a href="/auth/logout/">Выйти ({{ username }})</a></li>
+                {% else %}
+                    <li><a href="/auth/login/">Войти</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
 
     <style>
-    A {
-    color: red; /* Цвет символа */
-    }
+    body {padding-top: 50px;}
     #name {
     color: #4300ff; /* Цвет символа */
     }
     </style>
 
-    <h2><a href="{% url 'post_list' %}">TEST</a> </h2>
-
-    <div>
-    <h2>Запрос</h2>
-        <form action="" method="post">
-            {% csrf_token %}
-                <div class="col-xs-3">
-                    {% bootstrap_form form %}
-                    {% buttons %}
-                    <button type="submit" class="btn btn-primary"> Отправить </button>
-                    {% endbuttons %}
-                </div>
-        </form>
+    <div class="container">
+        <h2><a href="{% url 'post_list' %}">TEST</a> </h2>
     </div>
-    <br>
-    <br>
-    <br>
-    <p ID="name">
-        {{ name|default:"" }}
-    </p>
 
+    <div class="container">
+        <h2>Запрос</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                    <div class="col-xs-3">
+                        {% bootstrap_form form %}
+                        {% buttons %}
+                        <button type="submit" class="btn btn-primary"> Отправить </button>
+                        {% endbuttons %}
+                    </div>
+            </form>
+    </div>
 
-
-
-
+    <div class="container">
+        <p ID="name">{{ name|default:"" }}</p>
+    </div>
 
 {% endblock content %}
